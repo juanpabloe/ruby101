@@ -1,68 +1,68 @@
-# RUBY 101 - Clases
+# RUBY 101 - Classes
 
-#Clases
-  #Definicion
-  #El metodo initialize es el constructor de la clase
-  #Las variables de instancia se definen con una @ antes de su nombre
-  class Persona
-    def initialize(nombre, apellido)
-      @nombre = nombre
-      @apellido = apellido
+#Classes
+  #Definition
+  #The method initialize is the constructor of the class
+  #Instace variables are defined with a @ before the its name
+  class Person
+    def initialize(name, last_name)
+      @name = name
+      @last_name = last_name
     end
   end
   
-  elias = Persona.new('Elias', 'Matheus') #Se crea un objecto nuevo con el metodo new
-  p elias.inspect 
+  dylan = Person.new('Dylan', 'Herts') #Create a new object
+  dylan.inspect
   
-#Metodos de acceso
-  class Perro
-    attr_reader     :edad   # Crea solo metodo de lectura
-    attr_writer     :nombre # Crea solo metodo de escritura
-    attr_accessor   :owner  # Crea ambos metodos
+#Access methods
+  class Dog
+    attr_reader     :age   # Creates just the get method
+    attr_writer     :name  # Creates just the set method
+    attr_accessor   :owner  # Creates both methods
     
     def initialize()
-      @edad = 0 
+      @age = 0 
     end
   end
   
-  #Nace un perro
-  perro = Perro.new
+  #A new dog in the house
+  dog = Dog.new
   
-  #Le asignamos un nombre
-  perro.nombre = 'Fido'
-  p perro.owner # => nil
-  perro.owner = elias
-  p perro.owner # => Objecto Persona
+  #Assigning a name
+  dog.name = 'Spike'
+  dog.owner # => nil
+  dog.owner = dylan
+  dog.owner # => Person object
   
-#Metodos de instancia
-  class Gato
+#Instance methods
+  class Cat
     def kick
       puts 'miaou [Please dont kick me sir]'
     end
   end
   
-  gato_callejero = Gato.new
-  gato_callejero.kick # => miaou [Please dont kick me sir]
+  street_cat = Cat.kick
+  street_cat.kick # => miaou [Please dont kick me sir]
   
-#Metodos de clase
-  class Caballo
+#Class methods
+  class Horse
     
-    def initialize(nombre)
-      @nombre = nombre
+    def initialize(name)
+      @name = name
     end
     
-    #En java los metodos de clase son metodos estáticos
-    def self.informacion
-      'Animal grande'
+    #In java class methods are static
+    def self.info
+      'Big animal'
     end
     
-    def informacion
-      "#{Caballo.informacion} llamado #{@nombre}" 
+    def info
+      "#{Horse.info} called #{@age}" 
     end
     
   end
   
-  caballo = Caballo.new('Londres')
-  p Caballo.informacion # => Animal grande
-  p caballo.informacion # => Animal grande llamado Londres
+  horse = Horse.new('Tornado')
+  Horse.info # => Big animal
+  horse.info # => Big animal called Tornado
   

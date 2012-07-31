@@ -1,101 +1,107 @@
-# RUBY 101 - Basico
-# Todo lo que venga despues de un # es un comentario en Ruby
+# RUBY 101 - Basic
+# Everything after a # is a comment in Ruby
 
 #Variables
-  # Los tipos de dato no importan en Ruby
-  soy_un_string = "Hola!"
-  soy_un_entero = 100
-  soy_un_boolean = true
+  # Datatypes dont matter in Ruby
+  im_a_string = "Hello!"
+  im_an_integer = 100
+  im_a_boolean = true
 
-#Output (Escribir algo)
-  puts "Hola desde Ruby"
-  puts "#{soy_un_string} desde Ruby" # => Hola! desde Ruby
+#Output (Write something)
+  puts "Hi from Ruby"
+  #String interpolation
+  puts "#{im_a_string} from Ruby" # => Hello! from Ruby
 
-#Input (Leer algo)
-  input_del_usuario = gets
-  puts "Acabas de escribir: #{input_del_usuario}"
-
-#Métodos
-  #Definicion
-  def saluda
-    puts "Hola, estoy dentro de un metodo"
+#Methods
+  #Definition
+  def say_hi
+    puts "Hi, this is from a method"
   end
   
-  #Llamada
-  saluda # => Hola, estoy dentro de un metodo
+  #Calling 
+  say_hi # => Hi, this is from a method
   
-  #Metodos con parametros
-  def saluda_a(nombre)
-    puts "Hola #{nombre}"
+  #Methods with params
+  def say_hi_to(name)
+    puts "Hello #{name}"
   end
   
-  saluda_a("Adrian") # => Hola Adrian!
+  say_hi_to("Krishna") # => Hello Krishna
 
-  #Metodos con parametros opcionales
-  def saludo!(nombre='viejo')
-    puts "Hola #{nombre}!" 
+  #Methods with optional params
+  def greet!(name='dude')
+    puts "Hello #{name}!" 
   end
   
-  saludo!("Miguel") # => Hola Miguel!
-  saludo! # => Hola viejo!
+  greet!("Dylan") # => Hello Dylan!
+  greet! # => Hello dude!
   
-  #Metodos que devuelven valores
-  def cuadrado(numero)
-    numero * numero
+  #Methods that return values
+  def square(num)
+    num * num
   end
-  puts cuadrado(5) # => 25
+  puts square(5) # => 25
 
-#Condiciones
-  #Sintaxis normal
+#Conditions
+  #Sintaxis 
   if true
-    puts "Siempre entro a esta seccion"
+    puts "Im always entering this section"
   else
-    puts "Nadie me quiere escuchar"
+    puts "No one pays attention to me"
   end
   
-  #Super Variaciones
-  todo_va_bien = true
+  #Super variations
+  going_well = true
   uber_fail = false
   
-  puts "Todo va bien" if todo_va_bien # => Todo va bien
-  puts "Seguimos bien :)" unless uber_fail # => Seguimos bien :)
+  puts "Everything is going well" if going_well # => Everything is going well 
+  puts "Still going well" unless uber_fail # => Still going well
   
-#Arreglos
-  arreglo_vacio = []
-  numeros = [1, 2]
+#Arrays - Collections
+  empty_array = []
+  numbers = [1, 2]
   
-  #Introducir elementos en un arreglo
-  numeros << 3 # => [1,2,3]
-  numeros << 4 # => [1,2,3,4]
-  
-  #Accessar elementos de un arreglo
-  numeros.first # => 1
-  numeros[1] # => 2
+  #Push a new element to the array
+  numbers << 3 # => [1,2,3]
+  numbers << 4 # => [1,2,3,4]
+  numbers << "hello" # => [1,2,3,4,"hello"]
+
+  #Access the elements of an array
+  numbers.first # => 1
+  numbers[1] # => 2
+  numbers.last # => "hello"
+  [1,2,3,13].push("new") # => [1,2,3,13,"new"]
+
+  #Transforming arrays 
+  [1,2,3,4,5].map { |i| i + 1 } # => [2,3,4,5,6]
+  #Filtering elements in an array
+  [1,2,3,4,5,6].select { |number| number % 2 == 0 } # => [2,4,6]
   
 #Hashes
-  hash_vacio = {}
-  persona = {:nombre => 'Adrian', :edad => 25}
+  empty_hash = {}
+  person = { :name => 'Juan Pablo', :age => 21 }
   
-  #Introducir elementos a un hash
-  persona[:apellido] = 'Cuadros' # => {:nombre => 'Adrian', :edad => 25, :apellido => 'Cuadros'}
+  #Introduce elements to a hash
+  person[:last_name] = 'Escobar' # => { :name => 'Juan Pablo', :age => 21, :last_name => 'Escobar' }
   
-  #Accessar elementos de un hash
-  persona[:nombre] # => Adrian
+  #Access elements
+  person[:name] # => Juan Pablo
+  person['name'] # => Juan Pablo
 
-#Debuggear con inspect
-  puts numeros.inspect # => [1,2,3,4]
-  puts persona.inspect # => {:nombre => 'Adrian', :edad => 25, :apellido => 'Cuadros'}
+#Debugging with inspect
+  puts numbers.inspect # => [1,2,3,4,"hello"]
+  puts person.inspect # => { :name => 'Juan Pablo', :age => 21, :last_name => 'Escobar' }
   
-#Ciclos
+#Loops
   #each
-  sumatoria = 0
-  [1,2,3,4].each { |valor| sumatoria += valor }
-  puts sumatoria # => 10
+  sum = 0
+  [1,2,3,4].each { |value| sum += value }
+  puts sum # => 10
   
   #while
   total = 0
   while total < 10 do
-    total+=1
+    total += 1
   end 
   puts total # => 10
   
